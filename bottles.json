@@ -1,6 +1,4 @@
 {
-  "title": "Bottles of Answers",
-  "globalColor": "#4ECDC4",
   "bottles": [
     { "id": "809cc195-1486-47c0-8d04-7dfbe4c24d5a", "answer": "Left-click to increase", "level": 0 },
     {
@@ -12,6 +10,7 @@
     { "id": "5b03330a-367a-42ac-abf8-047bccd464e4", "answer": "Click copyright to star and fork", "level": 0 }
   ],
   "settings": {
+    "globalColor": "#4ECDC4",
     "divisions": 3,
     "maxLevel": 100,
     "minLevel": 0

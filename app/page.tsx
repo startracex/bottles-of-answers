@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState, useRef } from "react";
-import { Download, Upload, Edit3, Save, Plus, Trash2, RotateCcw, GripVertical } from "lucide-react";
+import { Download, Upload, Edit3, Save, Plus, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -17,13 +17,12 @@ let { editMode, ...defaultData } = data;
 editMode = editMode === false ? false : true;
 
 interface AppData {
-  title: string;
-  globalColor: string;
   bottles: BottleData[];
   settings: {
     divisions: number; // Number of equal parts (replaces fillIncrement)
     maxLevel: number;
     minLevel: number;
+    globalColor: string;
   };
 }
 
@@ -43,7 +42,7 @@ export default function InteractiveBottles() {
 
   // Get effective color for a bottle (individual color or global fallback)
   const getBottleColor = (bottle: BottleData): string => {
-    return bottle.color || data.globalColor;
+    return bottle.color || data.settings.globalColor;
   };
 
   const toggleEditMode = () => {
@@ -250,7 +249,7 @@ export default function InteractiveBottles() {
                   <Input
                     id="globalColor"
                     type="color"
-                    value={data.globalColor}
+                    value={data.settings.globalColor}
                     onChange={(e) => updateGlobalColor(e.target.value)}
                     className="w-16 h-10"
                   />
@@ -288,7 +287,7 @@ export default function InteractiveBottles() {
               key={bottle.id}
               bottle={bottle}
               effectiveColor={getBottleColor(bottle)}
-              globalColor={data.globalColor}
+              globalColor={data.settings.globalColor}
               divisions={data.settings.divisions}
               isEditMode={isEditMode}
               isEditing={editingBottle === bottle.id}
