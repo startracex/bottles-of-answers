@@ -305,7 +305,7 @@ export default function InteractiveBottles() {
 
           {/* Add Bottle Button at the end */}
           {isEditMode && (
-            <div className="pt-4 flex flex-col items-center justify-center">
+            <div className="pt-4 flex flex-col items-center">
               <Button
                 onClick={addBottle}
                 variant="outline"

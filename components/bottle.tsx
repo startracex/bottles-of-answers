@@ -97,18 +97,17 @@ export function Bottle({
 
       {/* Bottle */}
       <div
-        className={`relative w-20 h-32 cursor-pointer transition-transform hover:scale-105 ${isEditMode ? "ring-2 ring-blue-300" : ""}`}
+        className="flex flex-col items-center w-20 h-32 cursor-pointer transition-transform hover:scale-105"
         onClick={handleClick}
         onContextMenu={handleRightClick}
       >
+        {/* Bottle Neck - wider (more than 80% of body width) */}
+        <div className="w-12 h-4 bg-gray-300 border-2 border-gray-400 rounded-t-lg"></div>
         {/* Bottle Shape - rounded on all sides */}
-        <div className="absolute inset-0 bg-gray-200 rounded-lg border-2 border-gray-300">
-          {/* Bottle Neck - wider (more than 80% of body width) */}
-          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full w-12 h-4 bg-gray-300 border-2 border-gray-400 rounded-t-lg"></div>
-
+        <div className="relative overflow-hidden flex-1 w-full bg-gray-200 rounded-lg border-2 border-gray-300">
           {/* Liquid - rounded to match bottle shape */}
           <div
-            className="overflow-hidden absolute bottom-0 left-0 right-0 rounded-lg transition-all duration-300 ease-out"
+            className="absolute bottom-0 left-0 right-0 transition-all duration-300 ease-out"
             style={{
               height: `${bottle.level}%`,
               backgroundColor: effectiveColor,
@@ -117,10 +116,11 @@ export function Bottle({
           >
             {/* Liquid Surface Effect */}
             <div
-              className="absolute top-0 left-0 right-0 h-1 rounded-full"
+              className="transform -translate-y-1/2 absolute top-0 left-0 right-0 rounded-full"
               style={{
                 backgroundColor: effectiveColor,
                 opacity: 0.6,
+                height: `${bottle.level > 0 ? 4 : 0}px`,
               }}
             ></div>
           </div>
