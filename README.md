@@ -24,7 +24,7 @@ pnpm build
 
 1. Enter edit mode.
 
-2. Edit your bottle settings, such as questions, default values, and colors.
+2. Edit your bottle settings, such as answers, default values, and colors.
 
 3. Save and export.
 
